@@ -27,13 +27,15 @@ public class Word{
             counter++;
 
 
-            for(int i = 0; i < length; i++){
-                String letter = chars[random.nextInt(26)]; 
-                check(letter, usedLetters); 
+            for(int i = 0; i < length; i++){ // this is going to get a new letter
+                String letter = chars[random.nextInt(26)]; // set letter to the random char 
+                
+                while(check(letter, usedLetters)){ // until it is false  
+                    letter = chars[random.nextInt(26)]; 
+                }
                 usedLetters.add(letter); 
                 // we need to make a check method which will make sure that letter isn't already in usedLetters Arraylist 
                 // we are also going to have to make a method which will randomly select another letter which will once again check if it's in usedLetters (while loop)
-
 
 
                 newWord = letter;  
@@ -42,8 +44,6 @@ public class Word{
             if(newWord.equals(word)){
                 bool = true;
             }
-
-
         }
 
         System.out.println(newWord); 
@@ -53,10 +53,10 @@ public class Word{
     }
 
 
-    public boolean check(String str, ArrayList<String> usedLetters){
+    public boolean check(String letter, ArrayList<String> usedLetters){
         
         for(int i = 0; i < usedLetters.size(); i++){
-            if(str.equals(usedLetters.get(i))){
+            if(letter.equals(usedLetters.get(i))){
                 return true;
             }
         }
