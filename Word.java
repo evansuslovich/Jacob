@@ -21,15 +21,20 @@ public class Word{
 
         ArrayList<String> usedLetters = new ArrayList<String>(); // Create an ArrayList object 
 
-        while(bool == false){
+        while(bool == false){ // loops until true which is when the newWord is equals to the word given by the user
             newWord = ""; 
             usedLetters.clear(); 
             counter++;
 
-            
+
             for(int i = 0; i < length; i++){
-                newWord += chars[random.nextInt(26)]; 
-                usedLetters.add(chars[random.nextInt(26)]); 
+                String letter = chars[random.nextInt(26)]; 
+                usedLetters.add(letter); 
+
+                
+
+                
+                        
             }
 
             if(newWord.equals(word)){
